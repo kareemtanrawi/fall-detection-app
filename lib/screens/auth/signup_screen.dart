@@ -31,107 +31,116 @@ class RegisterPage extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 45,
-                      ),
-                      //this textfeild for the email
-                      TextFormFieldWidget(
-                        Controller: _emailController,
-                        validator: (value) {
-                          if (value!.isEmpty ||
-                              !value.contains('@') ||
-                              !value.contains('.')) {
-                            return ('You must enter your email');
-                          } else {
-                            return null;
-                          }
-                        },
-                        keyboardType: TextInputType.emailAddress,
-                        text: "Email",
-                        onChanged: (value) {},
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      //this textfeild for the password
-                      TextFormFieldWidget(
-                        Controller: _passwordController,
-                        obscureText: true,
-                        validator: (value) {
-                          if (value!.isEmpty || value.length < 6) {
-                            return ('You must enter your password');
-                          } else {
-                            return null;
-                          }
-                        },
-                        keyboardType: TextInputType.visiblePassword,
-                        text: "Password",
-                        onChanged: (value) {},
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      //this textfeild for the name
-                      TextFormFieldWidget(
-                        Controller: _nameController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return ('You must enter your name');
-                          } else {
-                            return null;
-                          }
-                        },
-                        keyboardType: TextInputType.name,
-                        text: "Name",
-                        onChanged: (value) {},
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      //this textfeild for the gender
-                      TextFormFieldWidget(
-                        Controller: _genderController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return ('You must enter your the gender');
-                          } else {
-                            return null;
-                          }
-                        },
-                        keyboardType: TextInputType.text,
-                        text: "Gender",
-                        onChanged: (value) {},
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      //this textfeild for the phone
-                      TextFormFieldWidget(
-                        Controller: _phoneController,
-                        validator: (value) {
-                          if (value!.isEmpty || value.length < 11) {
-                            return ('You must enter your the phone');
-                          } else {
-                            return null;
-                          }
-                        },
-                        keyboardType: TextInputType.phone,
-                        text: "Phone",
-                        onChanged: (value) {},
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      TextButtonWidget(
-                        text: "Get Started",
-                        onPressed: () {},
-                      ),
-                      SizedBox(
-                        height: size.height * 0.3,
-                      )
-                    ],
+                  child: Form(
+                    key: _key,
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        //this textfeild for the email
+                        TextFormFieldWidget(
+                          Controller: _emailController,
+                          validator: (value) {
+                            if (value!.isEmpty ||
+                                !value.contains('@') ||
+                                !value.contains('.')) {
+                              return ('You must enter your email');
+                            } else {
+                              return null;
+                            }
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          text: "Email",
+                          onChanged: (value) {},
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //this textfeild for the password
+                        TextFormFieldWidget(
+                          Controller: _passwordController,
+                          obscureText: true,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 6) {
+                              return ('You must enter your password');
+                            } else {
+                              return null;
+                            }
+                          },
+                          keyboardType: TextInputType.visiblePassword,
+                          text: "Password",
+                          onChanged: (value) {},
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //this textfeild for the name
+                        TextFormFieldWidget(
+                          Controller: _nameController,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return ('You must enter your name');
+                            } else {
+                              return null;
+                            }
+                          },
+                          keyboardType: TextInputType.name,
+                          text: "Name",
+                          onChanged: (value) {},
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //this textfeild for the gender
+                        TextFormFieldWidget(
+                          Controller: _genderController,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return ('You must enter your the gender');
+                            } else {
+                              return null;
+                            }
+                          },
+                          keyboardType: TextInputType.text,
+                          text: "Gender",
+                          onChanged: (value) {},
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //this textfeild for the phone
+                        TextFormFieldWidget(
+                          Controller: _phoneController,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 11) {
+                              return ('You must enter your the phone');
+                            } else {
+                              return null;
+                            }
+                          },
+                          keyboardType: TextInputType.phone,
+                          text: "Phone",
+                          onChanged: (value) {},
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextButtonWidget(
+                          text: "Get Started",
+                          onPressed: () {
+                            if (_key.currentState!.validate()) {
+                              print('valid');
+                            } else {
+                              print('not valid');
+                            }
+                          },
+                        ),
+                        SizedBox(
+                          height: size.height * 0.3,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )
