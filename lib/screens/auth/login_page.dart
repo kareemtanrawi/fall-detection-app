@@ -1,4 +1,5 @@
 import 'package:fall_detection_app/constants/constants.dart';
+import 'package:fall_detection_app/screens/auth/signup_screen.dart';
 import 'package:fall_detection_app/widgets/elevated_button_widget.dart';
 import 'package:fall_detection_app/widgets/text_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -101,7 +102,9 @@ class LoginPage extends StatelessWidget {
                   ),
                   TextButtonWidget(
                     text: 'Need an account?Sign up',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, RegisterPage.id);
+                    },
                   ),
                 ],
               ),

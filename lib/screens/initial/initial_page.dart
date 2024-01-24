@@ -1,4 +1,6 @@
 // import '..\..\constants\constants.dart';
+import 'package:fall_detection_app/screens/auth/signup_screen.dart';
+
 import '../auth/login_page.dart';
 // import '..\auth\login_page.dart';
 // import 'package:fall_detection_app/widgets/container_widget.dart';
@@ -86,6 +88,7 @@ class InitialPage extends StatelessWidget {
                   color: AppColors.kPrimaryColor,
                   onPressed: () {
                     // print('pressed');
+                    Navigator.pushNamed(context, RegisterPage.id);
                   },
                   text: "Next",
                 ),

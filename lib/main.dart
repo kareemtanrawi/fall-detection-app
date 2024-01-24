@@ -1,4 +1,5 @@
 import 'package:fall_detection_app/screens/auth/login_page.dart';
+import 'package:fall_detection_app/screens/auth/signup_screen.dart';
 import 'package:fall_detection_app/screens/initial/initial_page.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,7 @@ class FallDetectionApp extends StatelessWidget {
       routes: {
         InitialPage.id: (context) => const InitialPage(),
         LoginPage.id: (context) => LoginPage(),
+        RegisterPage.id: ((context) => RegisterPage()),
       },
       initialRoute: InitialPage.id,
     );
