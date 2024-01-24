@@ -4,6 +4,8 @@ import 'package:fall_detection_app/widgets/text_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../widgets/text_feild_widget.dart';
+
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
   static String id = 'LoginPage';
@@ -39,10 +41,12 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: size.height * 0.08,
                   ),
-                  //this is for the email
-                  TextFormField(
-                    controller: _emailController,
-                    // autocorrect: true,
+                  //this textfeild for the email
+                  TextFormFieldWidget(
+                    Controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    onChanged: (value) {},
+                    text: "Email",
                     validator: (value) {
                       if (value!.isEmpty ||
                           !value.contains('@') ||
@@ -52,78 +56,24 @@ class LoginPage extends StatelessWidget {
                         return null;
                       }
                     },
-                    keyboardType: TextInputType.emailAddress,
-                    style: GoogleFonts.aBeeZee(),
-                    onChanged: (value) {},
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      labelStyle: GoogleFonts.aBeeZee(
-                        color: Colors.grey,
-                      ),
-                      hintText: 'Email',
-                      hintStyle: GoogleFonts.aBeeZee(
-                        color: Colors.grey,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      // enabledBorder: OutlineInputBorder(
-                      //   borderRadius: BorderRadius.circular(30),
-                      //   borderSide: BorderSide(
-                      //     color: AppColors.kPrimaryColor,
-                      //   ),
-                      // ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: AppColors.kPrimaryColor,
-                        ),
-                      ),
-                    ),
                   ),
                   const SizedBox(
                     height: 36,
                   ),
                   //this is for the password
-                  TextFormField(
+                  TextFormFieldWidget(
+                    Controller: _passwordController,
+                    keyboardType: TextInputType.visiblePassword,
                     obscureText: true,
-                    controller: _passwordController,
-                    // autocorrect: true,
+                    onChanged: (value) {},
+                    text: "Password",
                     validator: (value) {
                       if (value!.isEmpty || value.length < 6) {
-                        return ('You must enter your Correct Password');
+                        return ('Password must be at least 6 characters');
                       } else {
                         return null;
                       }
                     },
-                    keyboardType: TextInputType.emailAddress,
-                    style: GoogleFonts.aBeeZee(),
-                    onChanged: (value) {},
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      labelStyle: GoogleFonts.aBeeZee(
-                        color: Colors.grey,
-                      ),
-                      hintText: 'Password',
-                      hintStyle: GoogleFonts.aBeeZee(
-                        color: Colors.grey,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      // enabledBorder: OutlineInputBorder(
-                      //   borderRadius: BorderRadius.circular(30),
-                      //   borderSide: BorderSide(
-                      //     color: AppColors.kPrimaryColor,
-                      //   ),
-                      // ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: AppColors.kPrimaryColor,
-                        ),
-                      ),
-                    ),
                   ),
                   // const SizedBox(
                   //   height: 2,
