@@ -1,10 +1,10 @@
-import 'package:fall_detection_app/constants/constants.dart';
-import 'package:fall_detection_app/widgets/elevated_button_widget.dart';
+// import 'package:fall_detection_app/constants/constants.dart';
+// import 'package:fall_detection_app/widgets/elevated_button_widget.dart';
 import 'package:fall_detection_app/widgets/text_button_widget.dart';
 import 'package:fall_detection_app/widgets/text_feild_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/register_container.dart';
 
@@ -35,6 +35,16 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+    _nameController = TextEditingController();
+    _genderController = TextEditingController();
+    _phoneController = TextEditingController();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SafeArea(
@@ -57,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         //this textfeild for the email
                         TextFormFieldWidget(
-                          Controller: _emailController,
+                          controller: _emailController,
                           validator: (value) {
                             if (value!.isEmpty ||
                                 !value.contains('@') ||
@@ -76,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         //this textfeild for the password
                         TextFormFieldWidget(
-                          Controller: _passwordController,
+                          controller: _passwordController,
                           obscureText: true,
                           validator: (value) {
                             if (value!.isEmpty || value.length < 6) {
@@ -94,7 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         //this textfeild for the name
                         TextFormFieldWidget(
-                          Controller: _nameController,
+                          controller: _nameController,
                           validator: (value) {
                             if (value!.isEmpty) {
                               return ('You must enter your name');
@@ -111,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         //this textfeild for the gender
                         TextFormFieldWidget(
-                          Controller: _genderController,
+                          controller: _genderController,
                           validator: (value) {
                             if (value!.isEmpty) {
                               return ('You must enter your the gender');
@@ -128,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         //this textfeild for the phone
                         TextFormFieldWidget(
-                          Controller: _phoneController,
+                          controller: _phoneController,
                           validator: (value) {
                             if (value!.isEmpty || value.length < 11) {
                               return ('You must enter your the phone');

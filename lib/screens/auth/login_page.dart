@@ -27,6 +27,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
@@ -56,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   //this textfeild for the email
                   TextFormFieldWidget(
-                    Controller: _emailController,
+                    controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) {},
                     text: "Email",
@@ -75,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   //this is for the password
                   TextFormFieldWidget(
-                    Controller: _passwordController,
+                    controller: _passwordController,
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: true,
                     onChanged: (value) {},
