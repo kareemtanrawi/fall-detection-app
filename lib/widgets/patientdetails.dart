@@ -16,7 +16,7 @@ class PatientDetail extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 19,
             fontWeight: FontWeight.w400,
@@ -25,7 +25,7 @@ class PatientDetail extends StatelessWidget {
         SizedBox(height: 5), // Add spacing between label and value
         Text(
           value,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 18,
             fontWeight: FontWeight.w400,

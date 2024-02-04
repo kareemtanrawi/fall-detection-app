@@ -1,10 +1,11 @@
-// import 'package:fall_detection_app/constants/constants.dart';
-// import 'package:fall_detection_app/widgets/elevated_button_widget.dart';
+import 'package:fall_detection_app/constants/constants.dart';
+import 'package:fall_detection_app/screens/homepage/homepage.dart';
+import 'package:fall_detection_app/widgets/elevated_button_widget.dart';
 import 'package:fall_detection_app/widgets/text_button_widget.dart';
 import 'package:fall_detection_app/widgets/text_feild_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/register_container.dart';
 
@@ -32,16 +33,6 @@ class _RegisterPageState extends State<RegisterPage> {
     _genderController.dispose();
     _phoneController.dispose();
     super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _emailController = TextEditingController();
-    _passwordController = TextEditingController();
-    _nameController = TextEditingController();
-    _genderController = TextEditingController();
-    _phoneController = TextEditingController();
   }
 
   @override
@@ -161,6 +152,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             } else {
                               print('not valid');
                             }
+                            Navigator.pushNamed(context, homepageView.id);
                           },
                         ),
                         SizedBox(

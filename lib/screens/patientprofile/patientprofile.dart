@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 //import 'package:tessst/customwidget.dart';
-//import 'package:tessst/pateintdetails.dart';
+// import 'package:tessst/pateintdetails.dart';
 
-import '../../widgets/patientattendantwidget.dart';
+// import '../../widgets/patientattendantwidget.dart';
+import '../../widgets/contact_number.dart';
 import '../../widgets/patientdetails.dart';
 
 class PatientInfo extends StatelessWidget {
@@ -16,7 +17,7 @@ class PatientInfo extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0, // Removes the shadow
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           color: Colors.black,
           onPressed: () {
             Navigator.of(context).pop();
@@ -43,7 +44,7 @@ class PatientInfo extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               left: 140,
               top: 180,
               child: Text(
@@ -69,7 +70,7 @@ class PatientInfo extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Column(
+                child: const Column(
                   children: [
                     Text(
                       "Gender",
@@ -87,7 +88,7 @@ class PatientInfo extends StatelessWidget {
               left: 200,
               right: 112,
               child: Container(
-                padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
+                padding: const EdgeInsets.fromLTRB(20, 17, 30, 14),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.black,
@@ -95,7 +96,7 @@ class PatientInfo extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Column(
+                child: const Column(
                   children: [
                     Text(
                       'gender',
@@ -108,28 +109,28 @@ class PatientInfo extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               left: 26,
               top: 300,
               child: PatientDetail(label: 'Name', value: 'jol'),
             ),
-            Positioned(
+            const Positioned(
               left: 26,
               top: 380,
               child: PatientDetail(label: 'Date of Birth', value: '01/01'),
             ),
-            Positioned(
+            const Positioned(
               left: 26,
               top: 460,
               child: PatientDetail(label: 'Phone Number', value: '+1 123-'),
             ),
-            Positioned(
+            const Positioned(
               left: 26,
               top: 550,
               child: PatientDetail(
                   label: 'Emergency Contact', value: '+ 987-654-'),
             ),
-            Positioned(
+            const Positioned(
               left: 26,
               top: 640,
               child: Text(
@@ -142,7 +143,7 @@ class PatientInfo extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               top: 700,
               left: 26,
               right: 26,
@@ -151,7 +152,7 @@ class PatientInfo extends StatelessWidget {
                   Expanded(
                     child: ContactContainer(text: 'Mother'),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Expanded(
                     child: ContactContainer(text: 'Friend'),
                   ),
@@ -163,7 +164,7 @@ class PatientInfo extends StatelessWidget {
               left: 26,
               right: 26,
               child: Container(
-                padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
+                padding: const EdgeInsets.fromLTRB(20, 17, 30, 14),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.black,
@@ -171,7 +172,7 @@ class PatientInfo extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Column(
+                child: const Column(
                   children: [
                     Text(
                       'Edit Details',

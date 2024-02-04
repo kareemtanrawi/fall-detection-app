@@ -1,5 +1,6 @@
 import 'package:fall_detection_app/constants/constants.dart';
 import 'package:fall_detection_app/screens/auth/signup_screen.dart';
+import 'package:fall_detection_app/screens/homepage/homepage.dart';
 import 'package:fall_detection_app/widgets/elevated_button_widget.dart';
 import 'package:fall_detection_app/widgets/text_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -24,13 +25,6 @@ class _LoginPageState extends State<LoginPage> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _emailController = TextEditingController();
-    _passwordController = TextEditingController();
   }
 
   @override
@@ -116,6 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                       } else {
                         print('not valid');
                       }
+                      Navigator.pushNamed(context, homepageView.id);
                     },
                     text: 'Log in',
                   ),

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../screens/map/map.dart';
 import 'PatiantsListView.dart';
 import 'customAppbar.dart';
 
@@ -19,8 +20,8 @@ class HomepageViewBody extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            customAppbar(),
-            SizedBox(
+            const customAppbar(),
+            const SizedBox(
               height: 3,
             ),
             SizedBox(
@@ -32,7 +33,7 @@ class HomepageViewBody extends StatelessWidget {
                   itemCount: 7,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return Padding(
+                    return const Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: PatiantsListView(),
                     );
@@ -40,18 +41,18 @@ class HomepageViewBody extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             SizedBox(
               height: size.height * 20,
               //width: size.width*40,
               child: ListView.builder(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemCount: 3,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  return const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12),
                     child: DetailesListView(),
                   );
                 },
@@ -63,10 +64,10 @@ class HomepageViewBody extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add),
         backgroundColor: Colors.black,
         foregroundColor: Colors.yellowAccent,
         elevation: 0,
+        child: const Icon(Icons.add),
         // shape: BeveledRectangleBorder(
         //     // borderRadius: BorderRadius.circular(20.0),
         //     // side: BorderSide(color: Colors.blue, width: 2.0, style: BorderStyle.solid)
@@ -81,7 +82,7 @@ class HomepageViewBody extends StatelessWidget {
             width: size.width * 0.1,
             child: BottomAppBar(
               notchMargin: 5.0,
-              shape: CircularNotchedRectangle(),
+              shape: const CircularNotchedRectangle(),
               color: Colors.white10,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -91,7 +92,7 @@ class HomepageViewBody extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 10.0),
                     child: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.home,
                         color: Colors.black,
                         //   size: 15,
@@ -102,8 +103,10 @@ class HomepageViewBody extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         right: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, MapPage.id);
+                      },
+                      icon: const Icon(
                         FontAwesomeIcons.solidMap,
                         color: Colors.black,
                         //  size: 15,
@@ -115,7 +118,7 @@ class HomepageViewBody extends StatelessWidget {
                         left: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         FontAwesomeIcons.solidComment,
                         color: Colors.black,
                         //   size: 15,
@@ -128,7 +131,7 @@ class HomepageViewBody extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, Cargiverprofile.id);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         CupertinoIcons.person_solid,
                         color: Colors.black,
                         // size: 15,
