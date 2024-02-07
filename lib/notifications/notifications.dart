@@ -23,11 +23,11 @@ class Notifications extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, homepageView.id);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back,
               color: Colors.black87,
             )),
-        title: Text(
+        title: const Text(
           'Notifications',
           style: TextStyle(
             color: Colors.black87,
@@ -39,7 +39,7 @@ class Notifications extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           children: [
             SizedBox(
@@ -74,7 +74,7 @@ class Notifications extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, homepageView.id);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.home,
                         color: Colors.black,
                         //   size: 15,
@@ -86,7 +86,7 @@ class Notifications extends StatelessWidget {
                         right: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         FontAwesomeIcons.solidMap,
                         color: Colors.black,
                         //  size: 15,
@@ -100,7 +100,7 @@ class Notifications extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, Notifications.id);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.notifications_active,
                         color: Colors.black,
                         //   size: 15,
@@ -113,7 +113,7 @@ class Notifications extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, Cargiverprofile.id);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         CupertinoIcons.person_solid,
                         color: Colors.black,
                         // size: 15,

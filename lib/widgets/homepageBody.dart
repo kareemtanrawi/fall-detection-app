@@ -29,7 +29,7 @@ class HomepageViewBody extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   itemCount: 7,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {

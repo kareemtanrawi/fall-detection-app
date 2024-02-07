@@ -1,8 +1,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- Permissions options for Google Maps -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+
     <application
+        android:usesCleartextTraffic="true"
         android:label="fall_detection_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDuDxriw8CH8NbVLiXtKFQ2Nb64AoRSdyg"/>
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -29,8 +39,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data android:name="com.google.android.geo.API_KEY" 
-                android:value="AIzaSyDuDxriw8CH8NbVLiXtKFQ2Nb64AoRSdyg"/>
-
+        
     </application>
 </manifest>
