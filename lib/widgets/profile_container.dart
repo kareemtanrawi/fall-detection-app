@@ -8,7 +8,7 @@ class profileContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return  Container(
       width: 340,
       height: 98,
       padding: const EdgeInsets.only(top: 8, left: 7, right: 9, bottom: 9),
@@ -23,8 +23,7 @@ class profileContainer extends StatelessWidget {
             blurRadius: 1,
             offset: Offset(0, 0),
             spreadRadius: 0,
-          ),
-          BoxShadow(
+          ),BoxShadow(
             color: Color(0x1E171A1F),
             blurRadius: 2,
             offset: Offset(0, 0),
@@ -46,8 +45,7 @@ class profileContainer extends StatelessWidget {
               blurRadius: 1,
               offset: Offset(0, 0),
               spreadRadius: 0,
-            ),
-            BoxShadow(
+            ),BoxShadow(
               color: Color(0x1E171A1F),
               blurRadius: 2,
               offset: Offset(0, 0),
@@ -57,52 +55,44 @@ class profileContainer extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(
-              height: 30,
-            ),
+            SizedBox(height: 30,),
+
             Row(
-              // mainAxisAlignment: MainAxisAlignment.start,
+
+             // mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 44,
-                ),
-                //  SizedBox(width: 44,),
-                Text(
-                  'Following',
-                  style: Styles.TextStyle18,
-                ),
-                SizedBox(
-                  width: 116,
-                ),
-                Text(
-                  '2',
-                  style: Styles.TextStyle16,
-                ),
+                SizedBox(width: 44,),
+              //  SizedBox(width: 44,),
+                Text('Following',style: Styles.TextStyle18,),
+                SizedBox(width: 116,),
+                Text('2',style: Styles.TextStyle16,),
+
               ],
+
+
             ),
-            SizedBox(
-              height: 25,
-            ),
+            SizedBox(height: 25,),
+
             Row(
               children: [
-                SizedBox(
-                  width: 56,
-                ),
-                Text(
-                  'Patients',
-                  style: Styles.TextStyle12,
-                ),
-                SizedBox(
-                  width: 114,
-                ),
-                Text(
-                  'Followers',
-                  style: Styles.TextStyle12,
-                ),
+                SizedBox(width: 56,),
+
+                Text('Patients',style: Styles.TextStyle12,),
+                SizedBox(width: 114,),
+                Text('Followers',style: Styles.TextStyle12,),
+
               ],
+
             )
+
+
+
           ],
         ),
+
+
+
+
       ),
     );
   }

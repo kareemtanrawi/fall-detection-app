@@ -9,6 +9,9 @@ class UserModel {
   final String country;
   final String emergencyContactName;
   final String emergencyContactPhoneNumber;
+  final String contactName;
+  final String contactPhoneNumber;
+  final String contactPhoto;
 
   UserModel({
     required this.userName,
@@ -21,6 +24,9 @@ class UserModel {
     required this.country,
     required this.emergencyContactName,
     required this.emergencyContactPhoneNumber,
+    required this.contactName,
+    required this.contactPhoneNumber,
+    required this.contactPhoto
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -35,6 +41,9 @@ class UserModel {
       country: json['country'],
       emergencyContactName: json['emergencyContactName'],
       emergencyContactPhoneNumber: json['emergencyContactPhoneNumber'],
+      contactName: json['contactName'],
+      contactPhoneNumber: json['contactPhoneNumber'],
+      contactPhoto: json['contactPhoto']
     );
   }
 }

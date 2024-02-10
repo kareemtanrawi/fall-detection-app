@@ -14,7 +14,7 @@ import '../../widgets/text_button_widget.dart';
 
 class InitialPage extends StatelessWidget {
   const InitialPage({super.key});
-  static String id = 'InitialPage';
+  static const String id = 'InitialPage';
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

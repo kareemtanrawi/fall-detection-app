@@ -1,37 +1,31 @@
 import 'package:flutter/material.dart';
+class ContactContainer extends StatelessWidget {
+  final String text;
 
-class PatientDetailAttend extends StatelessWidget {
-  final String label;
-  final String value;
-
-  const PatientDetailAttend({
-    required this.label,
-    required this.value,
-  });
+  const ContactContainer({required this.text});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 19,
-            fontWeight: FontWeight.w400,
-          ),
+    return Container(
+      padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.black,
+          width: 1,
         ),
-        SizedBox(height: 5), // Add spacing between label and value
-        Text(
-          value,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.w400,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        children: [
+          Text(
+            text,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

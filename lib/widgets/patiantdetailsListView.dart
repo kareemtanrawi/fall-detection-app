@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+
 class DetailesListView extends StatelessWidget {
   const DetailesListView({Key? key}) : super(key: key);
 
@@ -23,8 +24,7 @@ class DetailesListView extends StatelessWidget {
               blurRadius: 1,
               offset: Offset(0, 0),
               spreadRadius: 0,
-            ),
-            BoxShadow(
+            ),BoxShadow(
               color: Color(0x1E171A1F),
               blurRadius: 2,
               offset: Offset(0, 0),
@@ -42,16 +42,14 @@ class DetailesListView extends StatelessWidget {
                 height: 71,
                 decoration: ShapeDecoration(
                   color: Color(0xFFFFFFFE),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                   shadows: [
                     BoxShadow(
                       color: Color(0x11171A1F),
                       blurRadius: 1,
                       offset: Offset(0, 0),
                       spreadRadius: 0,
-                    ),
-                    BoxShadow(
+                    ),BoxShadow(
                       color: Color(0x1E171A1F),
                       blurRadius: 2,
                       offset: Offset(0, 0),
@@ -64,8 +62,10 @@ class DetailesListView extends StatelessWidget {
                     Positioned(
                       left: 51,
                       top: 17.22,
-                      child:
-                          Text('Patient you follow', style: Styles.TextStyle12),
+                      child: Text(
+                        'Patient you follow',
+                        style: Styles.TextStyle12
+                      ),
                     ),
                     Positioned(
                       left: 10,
@@ -107,6 +107,7 @@ class DetailesListView extends StatelessWidget {
                         child: Icon(Icons.more_horiz),
                       ),
                     ),
+
                   ],
                 ),
               ),
@@ -119,16 +120,14 @@ class DetailesListView extends StatelessWidget {
                 height: 98,
                 decoration: ShapeDecoration(
                   color: Color(0xFFFFFFFE),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                   shadows: [
                     BoxShadow(
                       color: Color(0x11171A1F),
                       blurRadius: 1,
                       offset: Offset(0, 0),
                       spreadRadius: 0,
-                    ),
-                    BoxShadow(
+                    ),BoxShadow(
                       color: Color(0x1E171A1F),
                       blurRadius: 2,
                       offset: Offset(0, 0),
@@ -136,18 +135,24 @@ class DetailesListView extends StatelessWidget {
                     )
                   ],
                 ),
+
                 child: Stack(
                   children: [
                     Positioned(
                       left: 14,
                       top: 16.22,
-                      child: Text('I need help in this location',
-                          style: Styles.TextStyle12),
+                      child: Text(
+                        'I need help in this location',
+                        style:Styles.TextStyle12
+                      ),
                     ),
                     Positioned(
                       left: 111,
                       top: 61.22,
-                      child: Text('Comment', style: Styles.TextStyle12),
+                      child: Text(
+                        'Comment',
+                        style: Styles.TextStyle12
+                      ),
                     ),
                     Positioned(
                       left: 7,
@@ -155,10 +160,7 @@ class DetailesListView extends StatelessWidget {
                       child: Container(
                         width: 21,
                         height: 10,
-                        child: Icon(
-                          (FontAwesomeIcons.solidHeart),
-                          color: Colors.black,
-                        ),
+                      child: Icon((FontAwesomeIcons.solidHeart),color: Colors.black,),
                       ),
                     ),
                     Positioned(
@@ -167,21 +169,24 @@ class DetailesListView extends StatelessWidget {
                       child: Container(
                         width: 19,
                         height: 19,
-                        child: Icon(
-                          FontAwesomeIcons.solidComment,
-                          color: Colors.black,
-                        ),
+                        child: Icon(FontAwesomeIcons.solidComment,color: Colors.black,),
                       ),
                     ),
                     Positioned(
                       left: 35,
                       top: 59.22,
-                      child: Text('Like', style: Styles.TextStyle12),
+                      child: Text(
+                        'Like',
+                        style: Styles.TextStyle12
+                      ),
                     ),
                     Positioned(
                       left: 246,
                       top: 34.22,
-                      child: Text('More', style: Styles.TextStyle12),
+                      child: Text(
+                        'More',
+                        style: Styles.TextStyle12
+                      ),
                     ),
                   ],
                 ),
@@ -198,8 +203,7 @@ class DetailesListView extends StatelessWidget {
                     image: AssetImage("assets/images/Image 188.png"),
                     fit: BoxFit.cover,
                   ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                 ),
               ),
             ),

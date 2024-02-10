@@ -22,13 +22,8 @@ class PatiantsListView extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          height: 15,
-        ),
-        Text(
-          'patient',
-          style: Styles.TextStyle12,
-        )
+        SizedBox(height: 15,),
+        Text('patient',style: Styles.TextStyle12,)
       ],
     );
   }

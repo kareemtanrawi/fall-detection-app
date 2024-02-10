@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class PatientDetail extends StatelessWidget {
   final String label;
   final String value;
@@ -16,7 +15,7 @@ class PatientDetail extends StatelessWidget {
       children: [
         Text(
           label,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.black,
             fontSize: 19,
             fontWeight: FontWeight.w400,
@@ -25,7 +24,7 @@ class PatientDetail extends StatelessWidget {
         SizedBox(height: 5), // Add spacing between label and value
         Text(
           value,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.black,
             fontSize: 18,
             fontWeight: FontWeight.w400,

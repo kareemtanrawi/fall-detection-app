@@ -1,16 +1,18 @@
 import 'package:fall_detection_app/screens/homepage/homepage.dart';
+import 'package:fall_detection_app/screens/map/map.dart';
 import 'package:fall_detection_app/widgets/notification_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-// import '../cargiverprofile/cargiverprofile.dart';
-import '../screens/cargiverprofile/cargiverprofile.dart';
+import '../../cubits/AuthCubit/AuthCubit.dart';
+import '../cargiverprofile/cargiverprofile.dart';
 
 class Notifications extends StatelessWidget {
   const Notifications({Key? key}) : super(key: key);
-  static String id = 'notification';
+  static const String id = 'notification';
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -20,15 +22,14 @@ class Notifications extends StatelessWidget {
         // shadowColor: Colors.white,
         elevation: 0.2,
         leading: IconButton(
-          onPressed: () {
-            Navigator.pushNamed(context, homepageView.id);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black87,
-          ),
-        ),
-        title: const Text(
+            onPressed: () {
+              Navigator.pushNamed(context, homepageView.id);
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black87,
+            )),
+        title: Text(
           'Notifications',
           style: TextStyle(
             color: Colors.black87,
@@ -40,7 +41,7 @@ class Notifications extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           children: [
             SizedBox(
@@ -51,7 +52,7 @@ class Notifications extends StatelessWidget {
               text: '& 10 others liked your post',
               name: 'Jane',
               Image: 'assets/images/patient.png',
-            ),
+            )
           ],
         ),
       ),
@@ -75,7 +76,7 @@ class Notifications extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, homepageView.id);
                       },
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.home,
                         color: Colors.black,
                         //   size: 15,
@@ -86,8 +87,10 @@ class Notifications extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         right: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, MapPage.id);
+                      },
+                      icon: Icon(
                         FontAwesomeIcons.solidMap,
                         color: Colors.black,
                         //  size: 15,
@@ -101,7 +104,7 @@ class Notifications extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, Notifications.id);
                       },
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.notifications_active,
                         color: Colors.black,
                         //   size: 15,
@@ -112,9 +115,10 @@ class Notifications extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: IconButton(
                       onPressed: () {
+                        //  context.read<UserCubit>().getUserProfile();
                         Navigator.pushNamed(context, Cargiverprofile.id);
                       },
-                      icon: const Icon(
+                      icon: Icon(
                         CupertinoIcons.person_solid,
                         color: Colors.black,
                         // size: 15,

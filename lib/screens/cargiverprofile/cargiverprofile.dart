@@ -1,19 +1,21 @@
+import 'package:fall_detection_app/cubits/AuthCubit/AuthCubit.dart';
+import 'package:fall_detection_app/cubits/AuthCubit/AuthStates.dart';
 import 'package:fall_detection_app/helper/Styles.dart';
 import 'package:fall_detection_app/screens/homepage/homepage.dart';
-// import 'package:fall_detection_app/screens/notifications/notifications.dart';
+import 'package:fall_detection_app/screens/map/map.dart';
+import 'package:fall_detection_app/screens/notifications/notifications.dart';
 import 'package:fall_detection_app/widgets/customAppbar.dart';
 import 'package:fall_detection_app/widgets/profile_container.dart';
 import 'package:fall_detection_app/widgets/profleAppbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../../notifications/notifications.dart';
 
 class Cargiverprofile extends StatelessWidget {
   const Cargiverprofile({Key? key}) : super(key: key);
-  static String id = 'CargiverProfile';
+  static const String id = 'CargiverProfile';
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -75,7 +77,7 @@ class Cargiverprofile extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      'John Doe',
+                      "Jone",
                       style: TextStyle(
                         color: Color(0xFF171A1F),
                         fontSize: 24,
@@ -97,7 +99,7 @@ class Cargiverprofile extends StatelessWidget {
                                 color: Colors.black,
                               )),
                           Text(
-                            '123-456-7890',
+                            "+23456789765",
                             style: Styles.TextStyle12,
                           )
                         ],
@@ -225,7 +227,9 @@ class Cargiverprofile extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         right: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, MapPage.id);
+                      },
                       icon: Icon(
                         FontAwesomeIcons.solidMap,
                         color: Colors.black,
@@ -251,6 +255,7 @@ class Cargiverprofile extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: IconButton(
                       onPressed: () {
+                        //   context.read<UserCubit>().getUserProfile();
                         Navigator.pushNamed(context, Cargiverprofile.id);
                       },
                       icon: Icon(

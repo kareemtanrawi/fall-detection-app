@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import '../constants/constants.dart';
 // import '..\constants\constants.dart';
 import 'package:flutter/material.dart';
@@ -8,14 +6,14 @@ import 'package:google_fonts/google_fonts.dart';
 class TextFormFieldWidget extends StatelessWidget {
   TextFormFieldWidget({
     super.key,
-    required this.controller,
+    required this.Controller,
     required this.validator,
     required this.keyboardType,
     required this.text,
     required this.onChanged,
     this.obscureText = false,
   });
-  TextEditingController controller;
+  TextEditingController Controller;
 
   //  TextEditingController _lController;
   String? Function(String?)? validator;
@@ -28,7 +26,7 @@ class TextFormFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
-      controller: controller,
+      controller: Controller,
       // autocorrect: true,
       // validator: (value) {
       //   if (value!.isEmpty || !value.contains('@') || !value.contains('.')) {
