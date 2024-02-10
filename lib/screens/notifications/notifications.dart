@@ -12,41 +12,32 @@ import '../cargiverprofile/cargiverprofile.dart';
 
 class Notifications extends StatelessWidget {
   const Notifications({Key? key}) : super(key: key);
-  static const String id = 'notification';
+  static String id = 'notification';
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size =MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
-        // shadowColor: Colors.white,
+       // shadowColor: Colors.white,
         elevation: 0.2,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, homepageView.id);
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.black87,
-            )),
-        title: Text(
-          'Notifications',
-          style: TextStyle(
-            color: Colors.black87,
-            fontSize: 24,
-            fontFamily: 'Lexend',
-            fontWeight: FontWeight.w700,
-            height: 0.06,
-          ),
-        ),
+        leading: IconButton(onPressed: (){
+      Navigator.pushNamed(context, homepageView.id);
+        }, icon: Icon(Icons.arrow_back,color: Colors.black87,)),
+        title: Text('Notifications',style:TextStyle(
+          color: Colors.black87,
+          fontSize: 24,
+          fontFamily: 'Lexend',
+          fontWeight: FontWeight.w700,
+          height: 0.06,
+        ) ,),
         centerTitle: true,
+
       ),
       body: Center(
         child: Column(
           children: [
-            SizedBox(
-              height: 25,
-            ),
+            SizedBox(height: 25,),
             NotificationContainer(
               icon: FontAwesomeIcons.solidHeart,
               text: '& 10 others liked your post',
@@ -56,16 +47,17 @@ class Notifications extends StatelessWidget {
           ],
         ),
       ),
+
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Expanded(
           child: SizedBox(
             height: 70,
-            width: size.width * 0.1,
+            width: size.width*0.1,
             child: BottomAppBar(
               // notchMargin: 5.0,
               // shape: CircularNotchedRectangle(),
-              color: Color(0xffFFFFFF),
+              color:  Color(0xffFFFFFF),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 mainAxisSize: MainAxisSize.max,
@@ -84,8 +76,8 @@ class Notifications extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        right: 20.0, top: 10.0, bottom: 10.0),
+                    padding:
+                    const EdgeInsets.only(right: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
                       onPressed: () {
                         Navigator.pushNamed(context, MapPage.id);
@@ -98,8 +90,8 @@ class Notifications extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20.0, top: 10.0, bottom: 10.0),
+                    padding:
+                    const EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
                       onPressed: () {
                         Navigator.pushNamed(context, Notifications.id);
@@ -115,13 +107,14 @@ class Notifications extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: IconButton(
                       onPressed: () {
-                        //  context.read<UserCubit>().getUserProfile();
+                      //  context.read<UserCubit>().getUserProfile();
                         Navigator.pushNamed(context, Cargiverprofile.id);
                       },
                       icon: Icon(
                         CupertinoIcons.person_solid,
                         color: Colors.black,
                         // size: 15,
+
                       ),
                     ),
                   ),

@@ -51,7 +51,7 @@ class Userfailer extends UserState{
 class ContactLoadingState extends UserState {}
 
 class ContactSucessState extends UserState {
-  final UserModel patientContact;
+  final   List<UserModel> patientContact;
 
   ContactSucessState({required this.patientContact});
 

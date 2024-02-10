@@ -1,8 +1,6 @@
-// import '../helper/api/end_ponits.dart';
+import '../helper/api/end_ponits.dart';
 
-import 'package:fall_detection_app/helper/api/end_ponits.dart';
-
-class SignInForPatiant {
+class SignInForPatiant{
   final String email;
   final String id;
 

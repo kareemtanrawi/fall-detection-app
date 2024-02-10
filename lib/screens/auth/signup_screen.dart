@@ -8,14 +8,13 @@ import 'package:fall_detection_app/widgets/text_feild_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/register_container.dart';
 
 class RegisterPage extends StatefulWidget {
   RegisterPage({super.key});
-  static const String id = 'RegisterPage';
+  static String id = 'RegisterPage';
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -41,21 +40,26 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+
+
     final size = MediaQuery.of(context).size;
     return SafeArea(
-      child: BlocConsumer<UserCubit, UserState>(
+      child: BlocConsumer<UserCubit,UserState>(
         listener: (context, state) {
-          if (state is SignUpSuccess) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text("Success"),
-            ));
-            Navigator.pushNamed(context, homepageView.id);
-          } else if (state is SignUpFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text(state.errMessage),
-            ));
-          }
+      if(state is SignUpSuccess){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Success"),
+
+        ));
+        Navigator.pushNamed(context, homepageView.id);
+      }
+      else if (state is SignUpFailure) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(state.errMessage),
+        ));
+      }
         },
+
         builder: (context, state) {
           return Scaffold(
             body: SingleChildScrollView(
@@ -68,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: Form(
-                        key: context.read<UserCubit>().signUpFormKey,
+                        key:  context.read<UserCubit>().signUpFormKey,
                         child: Column(
                           children: [
                             const SizedBox(
@@ -76,7 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             //this textfeild for the email
                             TextFormFieldWidget(
-                              Controller: context.read<UserCubit>().signUpEmail,
+                              Controller:  context.read<UserCubit>().signUpEmail,
                               validator: (value) {
                                 if (value!.isEmpty ||
                                     !value.contains('@') ||
@@ -95,8 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             //this textfeild for the password
                             TextFormFieldWidget(
-                              Controller:
-                                  context.read<UserCubit>().signUpPassword,
+                              Controller:  context.read<UserCubit>().signUpPassword,
                               obscureText: true,
                               validator: (value) {
                                 if (value!.isEmpty || value.length < 6) {
@@ -114,7 +117,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             //this textfeild for the name
                             TextFormFieldWidget(
-                              Controller: context.read<UserCubit>().signUpName,
+                              Controller:  context.read<UserCubit>().signUpName,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return ('You must enter your name');
@@ -131,8 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             //this textfeild for the gender
                             TextFormFieldWidget(
-                              Controller:
-                                  context.read<UserCubit>().signUpGender,
+                              Controller:  context.read<UserCubit>().signUpGender,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return ('You must enter your gender');
@@ -149,8 +151,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             //this textfeild for the phone
                             TextFormFieldWidget(
-                              Controller:
-                                  context.read<UserCubit>().signUpPhoneNumber,
+                              Controller:  context.read<UserCubit>().signUpPhoneNumber,
                               validator: (value) {
                                 if (value!.isEmpty || value.length < 11) {
                                   return ('You must enter your phone');
@@ -165,23 +166,22 @@ class _RegisterPageState extends State<RegisterPage> {
                             const SizedBox(
                               height: 10,
                             ),
-                            state is SignUpLoading
-                                ? CircularProgressIndicator()
-                                : TextButtonWidget(
-                                    text: "Get Started",
-                                    onPressed: () {
-                                      if ((context
-                                              .read<UserCubit>()
-                                              .signUpFormKey)
-                                          .currentState!
-                                          .validate()) {
-                                        print('valid');
-                                        context.read<UserCubit>().signUp();
-                                      } else {
-                                        print('not valid');
-                                      }
-                                    },
-                                  ),
+                            state is SignUpLoading? CircularProgressIndicator():
+                            TextButtonWidget(
+                              text: "Get Started",
+                              onPressed: () {
+
+
+                                if (( context.read<UserCubit>().signUpFormKey).currentState!.validate()) {
+                                  print('valid');
+                                  context.read<UserCubit>().signUp();
+                                } else {
+                                  print('not valid');
+                                }
+
+
+                              },
+                            ),
                             SizedBox(
                               height: size.height * 0.3,
                             )
@@ -195,6 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           );
         },
+
       ),
     );
   }

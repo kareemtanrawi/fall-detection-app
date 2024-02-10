@@ -140,8 +140,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:fall_detection_app/cubits/AuthCubit/AuthCubit.dart';
+import 'package:fall_detection_app/screens/patientprofile/patientprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapPage extends StatefulWidget {
@@ -202,8 +205,18 @@ class _MapPageState extends State<MapPage> {
               snippet: "Fall Event ID: ${userData['fallEventID']}",
             ),
             onTap: () {
-              // You can handle marker tap here
+              context.read<UserCubit>().getPatientcontact();
               Navigator.pushNamed(
+                context,
+                PatientInfo.id,
+                arguments: {
+                  'detailID': userData['detailID'],
+                  'fallEventID': userData['fallEventID'],
+                  // Add any other data you want to pass
+                },
+              );
+              // You can handle marker tap here
+              /*  Navigator.pushNamed(
                 context,
                 'PatientProfile',
                 arguments: {
@@ -211,7 +224,7 @@ class _MapPageState extends State<MapPage> {
                   'fallEventID': userData['fallEventID'],
                   // Add any other data you want to pass
                 },
-              );
+              );*/
               print("Tapped on marker with Detail ID: ${userData['detailID']}");
             },
           );

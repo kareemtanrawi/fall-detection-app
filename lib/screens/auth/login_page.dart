@@ -7,14 +7,13 @@ import 'package:fall_detection_app/widgets/elevated_button_widget.dart';
 import 'package:fall_detection_app/widgets/text_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/text_feild_widget.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({super.key});
-  static const String id = 'LoginPage';
+  static String id = 'LoginPage';
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -34,26 +33,34 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return BlocConsumer<UserCubit, UserState>(
-      listener: (context, state) {
-        if (state is SignInSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text("success"),
-            ),
-          );
+    return BlocConsumer<UserCubit,UserState>(
 
-          Navigator.pushNamed(context, homepageView.id);
-        } else if (state is SignInFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errMessage),
-            ),
-          );
-        }
+      listener: (context, state) {
+
+
+      if (state is SignInSuccess) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("success"),
+          ),
+        );
+
+        Navigator.pushNamed(context, homepageView.id);
+      }
+
+      else if (state is SignInFailure) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(state.errMessage),
+          ),
+        );
+      }
+
+
       },
+
       builder: (context, state) {
-        return Scaffold(
+        return  Scaffold(
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 28),
             child: Form(
@@ -80,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       //this textfeild for the email
                       TextFormFieldWidget(
-                        Controller: context.read<UserCubit>().signInEmail,
+                        Controller:  context.read<UserCubit>().signInEmail,
                         keyboardType: TextInputType.emailAddress,
                         onChanged: (value) {},
                         text: "Email",
@@ -99,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       //this is for the password
                       TextFormFieldWidget(
-                        Controller: context.read<UserCubit>().signInPassword,
+                        Controller:  context.read<UserCubit>().signInPassword,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
                         onChanged: (value) {},
@@ -127,21 +134,23 @@ class _LoginPageState extends State<LoginPage> {
                       ),
 
                       state is SignInLoading
-                          ? const CircularProgressIndicator()
-                          : ElevatedButtonWidget(
-                              color: AppColors.kPrimaryColor,
-                              onPressed: () {
-                                if ((context.read<UserCubit>().signInFormKey)
-                                    .currentState!
-                                    .validate()) {
-                                  context.read<UserCubit>().SignIn();
-                                  print('valid');
-                                } else {
-                                  print('not valid');
-                                }
-                              },
-                              text: 'Log in',
-                            ),
+                      ? const CircularProgressIndicator():
+                      ElevatedButtonWidget(
+                        color: AppColors.kPrimaryColor,
+                        onPressed: () {
+
+                          if ((context.read<UserCubit>().signInFormKey).currentState!.validate()) {
+                            context.read<UserCubit>().SignIn();
+                            print('valid');
+                          } else {
+                            print('not valid');
+                          }
+
+
+
+                        },
+                        text: 'Log in',
+                      ),
                       TextButtonWidget(
                         text: 'Need an account?Sign up',
                         onPressed: () {
@@ -156,6 +165,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
       },
+
     );
   }
 }

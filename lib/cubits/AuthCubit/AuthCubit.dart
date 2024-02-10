@@ -1,7 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:fall_detection_app/Models/Sign_inForPatiant.dart';
 import 'package:flutter/cupertino.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:jwt_decoder/jwt_decoder.dart';
 
 import '../../Models/signUpModel.dart';
@@ -119,16 +118,54 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  getPatientcontact(id) async {
+  /*getPatientcontact() async {
     try {
       emit(ContactLoadingState());
-      final response = await api.get(EndPoint.getPatientData, queryParameters: {
-        ApiKey.id: id,
-      });
 
-      emit(ContactSucessState(
-        patientContact: UserModel.fromJson(response),
-      ));
+      final id = CacheHelper().getData(key: ApiKey.id);
+
+      final  response=await api.get(
+
+          EndPoint.getPatientData,
+          queryParameters: {
+            'id': id,
+
+          });
+
+
+
+      emit(ContactSucessState(patientContact: UserModel.fromJson(response),
+
+      )
+      );
+    } on ServerException catch (e) {
+      emit(ContactFailureState(errormsg: e.errModel.errorMessage));
+    }
+  }*/
+
+  getPatientcontact() async {
+    try {
+      emit(ContactLoadingState());
+
+      final id = CacheHelper().getData(key: ApiKey.id);
+
+      final response = await api.get(
+        EndPoint.getPatientData,
+        queryParameters: {'id': id},
+      );
+
+      // Assuming the response is a List<dynamic>
+      if (response is List<dynamic>) {
+        // You might want to iterate through the list if needed
+        List<UserModel> userList = response.map((user) {
+          return UserModel.fromJson(user);
+        }).toList();
+
+        emit(ContactSucessState(patientContact: userList));
+      } else {
+        // Handle other cases if needed
+        emit(ContactFailureState(errormsg: "Invalid response format"));
+      }
     } on ServerException catch (e) {
       emit(ContactFailureState(errormsg: e.errModel.errorMessage));
     }
@@ -145,10 +182,12 @@ class UserCubit extends Cubit<UserState> {
           ApiKey.password: signInPassword.text,
         },
       );
+      Map<String, dynamic> data = response.data;
+      CacheHelper().saveData(key: ApiKey.id, value: data[ApiKey.id]);
       patient = SignInForPatiant.fromJson(response);
-      //final decodedToken = JwtDecoder.decode(user!.token);
-      CacheHelper().saveData(key: ApiKey.id, value: patient!.id);
-      // CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
+
+      //CacheHelper().saveData(key: ApiKey.id, value: patient!.id);
+
       emit(PatientSignInSuccess());
     } on ServerException catch (e) {
       emit(PatientSigninFailure(errmsg: e.errModel.errorMessage));

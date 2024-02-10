@@ -5,7 +5,7 @@ import '../../widgets/homepageBody.dart';
 
 class homepageView extends StatefulWidget {
   const homepageView({Key? key}) : super(key: key);
-  static const String id = 'homepage';
+  static String id = 'homepage';
   @override
   State<homepageView> createState() => _homepageViewState();
 }
