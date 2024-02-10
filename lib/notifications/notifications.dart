@@ -20,13 +20,14 @@ class Notifications extends StatelessWidget {
         // shadowColor: Colors.white,
         elevation: 0.2,
         leading: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, homepageView.id);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: Colors.black87,
-            )),
+          onPressed: () {
+            Navigator.pushNamed(context, homepageView.id);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black87,
+          ),
+        ),
         title: const Text(
           'Notifications',
           style: TextStyle(
@@ -50,7 +51,7 @@ class Notifications extends StatelessWidget {
               text: '& 10 others liked your post',
               name: 'Jane',
               Image: 'assets/images/patient.png',
-            )
+            ),
           ],
         ),
       ),
